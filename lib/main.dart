@@ -1,5 +1,6 @@
 import 'package:fe_lab_clinicas_core/fe_lab_clinicas_core.dart';
 import 'package:fe_lab_clinicas_self_service/src/binding/lab_clinicas_application_binding.dart';
+import 'package:fe_lab_clinicas_self_service/src/modules/auth/auth_module.dart';
 import 'package:fe_lab_clinicas_self_service/src/pages/splash_page/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
@@ -16,7 +17,10 @@ class LabClinicasSelfServiceApp extends StatelessWidget {
     return LabClinicasCoreConfig(
       title: "lab clinicas auto atendimento",
       binding: LabClinicasApplicationBinding(),
-      pagesBuilders: [FlutterGetItPageBuilder(page: (_) => SplashPage(), path: '/')],
+      modules: [AuthModule()],
+      pagesBuilders: [
+        FlutterGetItPageBuilder(page: (_) => SplashPage(), path: '/'),
+      ],
     );
   }
 }

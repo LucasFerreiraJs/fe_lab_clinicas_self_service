@@ -28,7 +28,5 @@ class UserRepositoryImpl implements UserRepository {
         _ => Left(AuthError(message: 'Erro ao realizar login')),
       };
     }
-
-    throw UnimplementedError();
   }
 }
