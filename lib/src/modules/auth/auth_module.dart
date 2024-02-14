@@ -1,7 +1,7 @@
 import 'package:fe_lab_clinicas_self_service/src/modules/auth/login/login_router.dart';
 import 'package:fe_lab_clinicas_self_service/src/repositories/user/user_repository.dart';
 import 'package:fe_lab_clinicas_self_service/src/repositories/user/user_repository_impl.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
 
 class AuthModule extends FlutterGetItModule {
@@ -15,6 +15,6 @@ class AuthModule extends FlutterGetItModule {
 
   @override
   Map<String, WidgetBuilder> get pages => {
-        '/login': (_) => LoginRouter(),
+        '/login': (_) => const LoginRouter(),
       };
 }
