@@ -7,7 +7,7 @@ import 'package:flutter_getit/flutter_getit.dart';
 class AuthModule extends FlutterGetItModule {
   @override
   List<Bind<Object>> get bindings => [
-        Bind.lazySingleton<UserRepository>((i) => UserRepositoryImpl(restClient: i())),
+        Bind.lazySingleton<IUserRepository>((i) => UserRepositoryImpl(restClient: i())),
       ];
 
   @override

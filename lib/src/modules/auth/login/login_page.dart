@@ -19,13 +19,6 @@ class _LoginPageState extends State<LoginPage> with MessageViewMixin {
   final controller = Injector.get<LoginController>();
 
   @override
-  void dispose() {
-    emailEC.dispose();
-    passwordEC.dispose();
-    super.dispose();
-  }
-
-  @override
   void initState() {
     messageListener(controller);
 
@@ -36,6 +29,13 @@ class _LoginPageState extends State<LoginPage> with MessageViewMixin {
     });
 
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    emailEC.dispose();
+    passwordEC.dispose();
+    super.dispose();
   }
 
   @override

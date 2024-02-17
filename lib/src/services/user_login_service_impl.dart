@@ -3,8 +3,8 @@ import 'package:fe_lab_clinicas_self_service/src/repositories/user/user_reposito
 import 'package:fe_lab_clinicas_self_service/src/services/user_login_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class UserLoginServiceImpl implements UserLoginService {
-  final UserRepository userRepository;
+class UserLoginServiceImpl implements IUserLoginService {
+  final IUserRepository userRepository;
   UserLoginServiceImpl({required this.userRepository});
 
   @override

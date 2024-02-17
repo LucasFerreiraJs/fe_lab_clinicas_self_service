@@ -1,14 +1,15 @@
 import 'package:asyncstate/asyncstate.dart';
 import 'package:fe_lab_clinicas_core/fe_lab_clinicas_core.dart';
 import 'package:fe_lab_clinicas_self_service/src/services/user_login_service.dart';
+import 'package:fe_lab_clinicas_self_service/src/services/user_login_service_impl.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
 class LoginController with MessageStateMixin {
+  final IUserLoginService _loginService;
   LoginController({
-    required UserLoginService loginService,
+    required IUserLoginService loginService,
   }) : _loginService = loginService;
 
-  final UserLoginService _loginService;
   final _obscurePassword = signal(true);
   final _logged = signal(false);
 
