@@ -13,7 +13,7 @@ class SelfServicePage extends StatefulWidget {
 
 class _SelfServicePageState extends State<SelfServicePage> with MessageViewMixin {
   final controller = Injector.get<SelfServiceController>();
-  _SelfServicePageState();
+  // _SelfServicePageState();
 
   @override
   void initState() {
@@ -35,9 +35,13 @@ class _SelfServicePageState extends State<SelfServicePage> with MessageViewMixin
             baseRoute += 'find-patient';
           case EFormSteps.documents:
             baseRoute += 'documents';
+          case EFormSteps.patient:
+            baseRoute += 'patient';
           case EFormSteps.done:
             baseRoute += 'done';
           case EFormSteps.restart:
+            Navigator.of(context).popUntil(ModalRoute.withName('/self-service'));
+            controller.startProcess();
             return;
         }
 

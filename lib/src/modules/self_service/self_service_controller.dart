@@ -1,4 +1,5 @@
 import 'package:fe_lab_clinicas_core/fe_lab_clinicas_core.dart';
+import 'package:fe_lab_clinicas_self_service/src/model/patient_model.dart';
 import 'package:fe_lab_clinicas_self_service/src/model/self_service_model.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
@@ -7,6 +8,7 @@ enum EFormSteps {
   whoIAm,
   findPatient,
   documents,
+  patient,
   done,
   restart,
 }
@@ -27,5 +29,15 @@ class SelfServiceController with MessageStateMixin {
 
   void clearForm() {
     _model = _model.clear();
+  }
+
+  void goToFormPatient(PatientModel? model) {
+    _model = _model.copyWith(patient: () => model);
+    _step.forceUpdate(EFormSteps.patient);
+  }
+
+  void restartProcess() {
+    _step.forceUpdate(EFormSteps.restart);
+    clearForm();
   }
 }
