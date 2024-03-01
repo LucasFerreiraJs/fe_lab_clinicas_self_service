@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fe_lab_clinicas_self_service/src/model/patient_model.dart';
-import 'package:flutter/material.dart';
 
 final class SelfServiceModel {
   final String? name;
