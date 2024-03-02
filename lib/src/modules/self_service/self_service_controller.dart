@@ -17,6 +17,7 @@ class SelfServiceController with MessageStateMixin {
   final _step = ValueSignal(EFormSteps.none);
   var _model = const SelfServiceModel();
   EFormSteps get step => _step();
+  SelfServiceModel get model => _model;
 
   void startProcess() {
     _step.forceUpdate(EFormSteps.whoIAm);
@@ -39,5 +40,10 @@ class SelfServiceController with MessageStateMixin {
   void restartProcess() {
     _step.forceUpdate(EFormSteps.restart);
     clearForm();
+  }
+
+  void updatePatientAndGoDocument(PatientModel? patient) {
+    _model = _model.copyWith(patient: () => patient);
+    _step.forceUpdate(EFormSteps.documents);
   }
 }
